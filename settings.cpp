@@ -31,6 +31,7 @@ void settingsUpdate()
     if (buttonWasLongPressed())
     {
         uiNextScreen();
+        return;
     }
     else if (buttonWasPressed())
     {
@@ -40,6 +41,8 @@ void settingsUpdate()
         {
             currentSetting = 0;
         }
+
+        uiRequestRedraw();
     }
 
     animationUpdate();

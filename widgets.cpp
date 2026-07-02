@@ -110,7 +110,7 @@ void widgetDrawProgressBar(int16_t x,
 
     int16_t fillWidth = (w * percent) / 100;
 
-    if (fillWidth > 0)
+    if (fillWidth > 2)
     {
         displayFillRect(x + 1,
                         y + 1,

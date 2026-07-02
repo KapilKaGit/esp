@@ -22,6 +22,7 @@ void sensorUpdate()
     if (buttonWasPressed())
     {
         uiNextScreen();
+        return;
     }
 
     mpuUpdate();
@@ -35,6 +36,8 @@ void sensorUpdate()
     popupUpdate();
 
     topBarUpdate();
+
+    uiRequestTimedRedraw(100);
 }
 void sensorDraw()
 {

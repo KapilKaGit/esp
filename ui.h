@@ -32,6 +32,10 @@ void uiUpdate();
 
 void uiDraw();
 
+void uiRequestRedraw();
+
+void uiRequestTimedRedraw(unsigned long interval);
+
 void uiSetScreen(uint8_t screen);
 
 uint8_t uiGetScreen();

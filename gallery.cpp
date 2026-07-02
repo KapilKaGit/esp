@@ -18,6 +18,7 @@ void galleryUpdate()
     if (buttonWasLongPressed())
     {
         uiNextScreen();
+        return;
     }
     else if (buttonWasPressed())
     {
@@ -27,6 +28,8 @@ void galleryUpdate()
         {
             currentImage = 0;
         }
+
+        uiRequestRedraw();
     }
 
     topBarUpdate();

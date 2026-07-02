@@ -16,6 +16,7 @@ void aboutUpdate()
     if (buttonWasPressed())
     {
         uiNextScreen();
+        return;
     }
 
     animationUpdate();

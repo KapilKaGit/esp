@@ -33,6 +33,7 @@ void stopwatchUpdate()
         stopwatchElapsed = 0;
         stopwatchStartTime = 0;
         uiNextScreen();
+        return;
     }
     else if (buttonWasPressed())
     {
@@ -45,6 +46,8 @@ void stopwatchUpdate()
             stopwatchRunning = true;
             stopwatchStartTime = millis() - stopwatchElapsed;
         }
+
+        uiRequestRedraw();
     }
 
     if (stopwatchRunning)
@@ -57,6 +60,11 @@ void stopwatchUpdate()
     popupUpdate();
 
     topBarUpdate();
+
+    if (stopwatchRunning)
+    {
+        uiRequestTimedRedraw(UI_REFRESH_TIME);
+    }
 }
 
 void stopwatchDraw()
