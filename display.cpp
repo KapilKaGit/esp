@@ -6,28 +6,22 @@
 #include <Adafruit_ST7789.h>
 
 // Global display object
-static Adafruit_ST7789 tft(TFT_CS, TFT_DC, TFT_RST);
+static Adafruit_ST7789 tft(TFT_CS, TFT_DC, TFT_MOSI, TFT_SCLK, TFT_RST);
 static uint16_t currentTextColor = ST77XX_WHITE;
 
 bool displayBegin()
 {
-    // Initialize SPI
-    SPI.begin(TFT_SCLK, TFT_MISO, TFT_MOSI, TFT_CS);
+    // Match the verified worked_display.ino startup timing before
+    // the ST7789 receives any commands.
+    delay(500);
 
-    // Initialize display
+    // Initialize display using the same constructor-provided SPI pins,
+    // dimensions, rotation, and no explicit inversion command as the
+    // verified sketch.
     tft.init(240, 320);
-
-    // Portrait orientation
     tft.setRotation(0);
 
-    // Default screen
-    tft.fillScreen(ST77XX_BLACK);
-
-    // Default text settings
     currentTextColor = ST77XX_WHITE;
-    tft.setTextColor(currentTextColor);
-    tft.setTextSize(1);
-    tft.setCursor(0, 0);
 
     return true;
 }
