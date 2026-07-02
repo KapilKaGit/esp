@@ -21,6 +21,7 @@ void levelUpdate()
     if (buttonWasPressed())
     {
         uiNextScreen();
+        return;
     }
 
     mpuUpdate();
@@ -31,6 +32,8 @@ void levelUpdate()
     animationUpdate();
     popupUpdate();
     topBarUpdate();
+
+    uiRequestTimedRedraw(100);
 }
 
 void levelDraw()

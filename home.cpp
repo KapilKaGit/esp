@@ -15,6 +15,7 @@ void homeUpdate()
     if (buttonWasPressed())
     {
         uiNextScreen();
+        return;
     }
 
     clockUpdate();
@@ -28,6 +29,8 @@ void homeUpdate()
     popupUpdate();
 
     topBarUpdate();
+
+    uiRequestTimedRedraw(1000);
 }
 
 void homeDraw()

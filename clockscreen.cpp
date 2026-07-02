@@ -14,6 +14,7 @@ void clockScreenUpdate()
     if (buttonWasPressed())
     {
         uiNextScreen();
+        return;
     }
 
     clockUpdate();
@@ -23,6 +24,8 @@ void clockScreenUpdate()
     popupUpdate();
 
     topBarUpdate();
+
+    uiRequestTimedRedraw(1000);
 }
 void clockScreenDraw()
 {
